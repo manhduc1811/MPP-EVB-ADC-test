@@ -34,7 +34,7 @@ stem(t_full,x_full);
 title('Full Time signal. Abs.');
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % run FFT
-Nfft        = 2^10;
+Nfft        = 2^7;
 Fs          = 4*10^6;
 deltaF      = Fs/Nfft;
 tVectors    = (0:(Nfft-1))*dt;
@@ -60,3 +60,34 @@ title('Fourier transform. Abs.');
 %fileID   = fopen('OUT_FFT.txt','a');
 %fprintf(fileID,'%f\n',yAbs);
 %fclose(fileID);
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Sample-rate conversion: Fs_new = Fs/ss
+ss           = 8; %scale of Fs
+x_new        = x_full(1:ss:length_full);
+length_new   = length(x_new);
+Fs_new       = Fs/ss;
+deltaF_new   = Fs_new/Nfft;
+dt_new       = 1/Fs_new;
+t_new        = (1:1:length_new)*dt_new;
+tVectors_new = (0:(Nfft-1))*dt_new;
+fVectors_new = (0:(Nfft-1))*deltaF_new;
+y_new        = fft(x_new,Nfft);
+yAbs_new     = abs(y_new/Nfft);
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+figure(2);
+subplot(3,1,1);
+%stem(t_full,x_full,':diamondr');
+stem(t_new,x_new);
+%axis([0 2*length_full*dt 0 1*scale]);
+title('Full Time signal. Abs.');
+% plot time signal
+subplot(3,1,2);
+%stem(tVectors,x_full(1:Nfft),':diamondr');
+stem(tVectors_new,x_new(1:Nfft));
+xlabel("Time signal to FFT calculation.");
+%axis([0 Nfft*1/Fs 0 1*scale]);
+%%%%%%%%%%%%%%
+% plot fft output
+subplot(3,1,3);
+stem(fVectors_new,yAbs_new);
+title('Fourier transform. Abs.');
