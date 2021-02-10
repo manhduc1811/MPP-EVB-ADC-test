@@ -16,7 +16,7 @@ dt                  = 1/Fs;
 t_full              = (0:1:length_full-1)*dt;
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % load PortType2:
-x_PortType2_raw     = x_full(11047:1:11047+470-1);
+x_PortType2_raw     = x_full(11046:1:11046+480-1);
 % Substract mean:
 x_PortType2         = x_PortType2_raw - mean(x_PortType2_raw);
 t_PortType2         = (1:1:length(x_PortType2))*dt;

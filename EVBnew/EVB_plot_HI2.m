@@ -16,7 +16,7 @@ dt                  = 1/Fs;
 t_full              = (0:1:length_full-1)*dt;
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % load HI2:
-x_HI2_raw           = x_full(11535:1:11535+142-1);
+x_HI2_raw           = x_full(11534:1:11534+142-1);
 % Substract mean:
 x_HI2               = x_HI2_raw - mean(x_HI2_raw);
 t_HI2               = (1:1:length(x_HI2))*dt;

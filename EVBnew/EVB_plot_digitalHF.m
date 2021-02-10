@@ -16,7 +16,7 @@ dt                  = 1/Fs;
 t_full              = (0:1:length_full-1)*dt;
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % load DigitalHF:
-x_digitalHF_raw     = x_full(4547:1:4547+1312-1);
+x_digitalHF_raw     = x_full(4546:1:4546+1313-1);
 % Substract mean:
 x_digitalHF         = x_digitalHF_raw - mean(x_digitalHF_raw);
 t_digitalHF         = (1:1:length(x_digitalHF))*dt;

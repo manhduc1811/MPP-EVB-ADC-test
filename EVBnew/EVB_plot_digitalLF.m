@@ -16,7 +16,7 @@ dt                  = 1/Fs;
 t_full              = (0:1:length_full-1)*dt;
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % load Digital LF:
-x_digitalLF_raw     = x_full(1343:1:1343+1281-1);
+x_digitalLF_raw     = x_full(1342:1:1342+1342-1);
 % Substract mean:
 x_digitalLF         = x_digitalLF_raw - mean(x_digitalLF_raw);
 t_digitalLF         = (1:1:length(x_digitalLF))*dt;

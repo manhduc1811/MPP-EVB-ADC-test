@@ -16,7 +16,7 @@ dt                  = 1/Fs;
 t_full              = (0:1:length_full-1)*dt;
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % load pressureHF:
-x_pressureHF_raw    = x_full(7506:1:7506+1281-1);
+x_pressureHF_raw    = x_full(7506:1:7506+1312-1);
 % Substract mean:
 x_pressureHF        = x_pressureHF_raw - mean(x_pressureHF_raw);
 t_pressureHF        = (1:1:length(x_pressureHF))*dt;
