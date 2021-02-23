@@ -30,7 +30,7 @@ fftdigitalHFTem     = fft(x_digitalHF(1:1:Nfft),Nfft);
 fftdigitalHF        = abs(fftdigitalHFTem);
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % plot Full Beacon LF
-figure(6);
+figure(1);
 subplot(3,1,1);
 plot(t_digitalHF,x_digitalHF);
 title('digitalHF time signal.');
@@ -46,3 +46,107 @@ title('digitalHF: Fourier transform. Abs.');
 %axis([0 Fs 0 Nfft/2*scale]);
 %axis([0 Fs 0 25]);
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+x_digitalHF1         = x_digitalHF(1:1:142);
+x_digitalHF2         = x_digitalHF(142+11+1:1:142+11+142);
+x_digitalHF3         = x_digitalHF(2*142+2*11+1:1:2*142+2*11+142);
+x_digitalHF4         = x_digitalHF(3*142+3*11+1:1:3*142+3*11+142);
+x_digitalHF5         = x_digitalHF(4*142+3*11+102+1:1:4*142+3*11+102+142);
+x_digitalHF6         = x_digitalHF(5*142+4*11+102+1:1:5*142+4*11+102+142);
+x_digitalHF7         = x_digitalHF(6*142+5*11+102+1:1:6*142+5*11+102+142);
+x_digitalHF8         = x_digitalHF(7*142+6*11+102+1:1:7*142+6*11+102+142);
+
+t_digitalHF1         = (1:1:length(x_digitalHF1))*dt;
+t_digitalHF2         = (1:1:length(x_digitalHF2))*dt;
+t_digitalHF3         = (1:1:length(x_digitalHF3))*dt;
+t_digitalHF4         = (1:1:length(x_digitalHF4))*dt;
+t_digitalHF5         = (1:1:length(x_digitalHF5))*dt;
+t_digitalHF6         = (1:1:length(x_digitalHF6))*dt;
+t_digitalHF7         = (1:1:length(x_digitalHF7))*dt;
+t_digitalHF8         = (1:1:length(x_digitalHF8))*dt;
+
+% FFT calculation for digitalHF
+Nfft1                = length(x_digitalHF1);
+deltaF1              = Fs/Nfft1;
+tVectors             = (1:Nfft1)*dt;
+fVectors             = (1:Nfft1)*deltaF1;
+% digitalHF part to FFT calculation
+fftdigitalHFTem1     = fft(x_digitalHF1(1:1:Nfft1),Nfft1);
+fftdigitalHF1        = abs(fftdigitalHFTem1);
+fftdigitalHFTem2     = fft(x_digitalHF2(1:1:Nfft1),Nfft1);
+fftdigitalHF2        = abs(fftdigitalHFTem2);
+fftdigitalHFTem3     = fft(x_digitalHF3(1:1:Nfft1),Nfft1);
+fftdigitalHF3        = abs(fftdigitalHFTem3);
+fftdigitalHFTem4     = fft(x_digitalHF4(1:1:Nfft1),Nfft1);
+fftdigitalHF4        = abs(fftdigitalHFTem4);
+fftdigitalHFTem5     = fft(x_digitalHF5(1:1:Nfft1),Nfft1);
+fftdigitalHF5        = abs(fftdigitalHFTem5);
+fftdigitalHFTem6     = fft(x_digitalHF6(1:1:Nfft1),Nfft1);
+fftdigitalHF6        = abs(fftdigitalHFTem6);
+fftdigitalHFTem7     = fft(x_digitalHF7(1:1:Nfft1),Nfft1);
+fftdigitalHF7        = abs(fftdigitalHFTem7);
+fftdigitalHFTem8     = fft(x_digitalHF8(1:1:Nfft1),Nfft1);
+fftdigitalHF8        = abs(fftdigitalHFTem8);
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+figure(2);
+subplot(2,1,1);
+plot(tVectors,x_digitalHF1(1:Nfft1));
+title("digitalHF-1: Time signal to FFT calculation.");
+subplot(2,1,2);
+stem(fVectors,fftdigitalHF1);
+title('digitalHF-1: Fourier transform. Abs.'); 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+figure(3);
+subplot(2,1,1);
+plot(tVectors,x_digitalHF2(1:Nfft1));
+title("digitalHF-2: Time signal to FFT calculation.");
+subplot(2,1,2);
+stem(fVectors,fftdigitalHF2);
+title('digitalHF-2: Fourier transform. Abs.'); 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+figure(4);
+subplot(2,1,1);
+plot(tVectors,x_digitalHF3(1:Nfft1));
+title("digitalHF-3: Time signal to FFT calculation.");
+subplot(2,1,2);
+stem(fVectors,fftdigitalHF3);
+title('digitalHF-3: Fourier transform. Abs.'); 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+figure(5);
+subplot(2,1,1);
+plot(tVectors,x_digitalHF4(1:Nfft1));
+title("digitalHF-4: Time signal to FFT calculation.");
+subplot(2,1,2);
+stem(fVectors,fftdigitalHF4);
+title('digitalHF-4: Fourier transform. Abs.'); 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+figure(6);
+subplot(2,1,1);
+plot(tVectors,x_digitalHF5(1:Nfft1));
+title("digitalHF-5: Time signal to FFT calculation.");
+subplot(2,1,2);
+stem(fVectors,fftdigitalHF5);
+title('digitalHF-5: Fourier transform. Abs.'); 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+figure(7);
+subplot(2,1,1);
+plot(tVectors,x_digitalHF6(1:Nfft1));
+title("digitalHF-6: Time signal to FFT calculation.");
+subplot(2,1,2);
+stem(fVectors,fftdigitalHF6);
+title('digitalHF-6: Fourier transform. Abs.'); 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+figure(8);
+subplot(2,1,1);
+plot(tVectors,x_digitalHF7(1:Nfft1));
+title("digitalHF-7: Time signal to FFT calculation.");
+subplot(2,1,2);
+stem(fVectors,fftdigitalHF7);
+title('digitalHF-7: Fourier transform. Abs.'); 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+figure(9);
+subplot(2,1,1);
+plot(tVectors,x_digitalHF8(1:Nfft1));
+title("digitalHF-8: Time signal to FFT calculation.");
+subplot(2,1,2);
+stem(fVectors,fftdigitalHF8);
+title('digitalHF-8: Fourier transform. Abs.'); 

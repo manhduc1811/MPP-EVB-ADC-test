@@ -71,9 +71,9 @@ title('BeaconLF time signal.');
 % plot time signal
 subplot(3,1,2);
 plot(t_beaconLF,x_beaconLF_lp);
-title('Beacon TIP time signal.');
+title('Beacon TIP: result of using LPF(fc = 30,000Hz).');
 %axis([0 Nfft*1/Fs 0 1*scale]);
 % plot fft output
 subplot(3,1,3);
 plot(t_beaconLF,x_beaconLF_hp);
-title('Beacon RING time signal.');
+title('Beacon RING: result of using HPF (fp = 150,000Hz).');

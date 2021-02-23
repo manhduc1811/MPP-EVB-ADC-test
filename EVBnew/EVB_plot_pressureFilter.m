@@ -104,6 +104,7 @@ title('pressureHF: Fourier transform. Abs.');
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % plot mixed signal and filtered signal:
 figure(4);
+subplot(2,1,1);
 plot(t_pressureHF,x_pressureHFsm);
 hold on;
 plot(t_pressureHF,x_pressureHFbp);

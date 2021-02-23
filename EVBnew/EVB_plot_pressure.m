@@ -30,7 +30,7 @@ fftpressureHFTem    = fft(x_pressureHF(1:1:Nfft),Nfft);
 fftpressureHF       = abs(fftpressureHFTem);
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % plot Full Beacon LF
-figure(7);
+figure(1);
 subplot(3,1,1);
 plot(t_pressureHF,x_pressureHF);
 title('pressureHF time signal.');
@@ -46,3 +46,108 @@ title('pressureHF: Fourier transform. Abs.');
 %axis([0 Fs 0 Nfft/2*scale]);
 %axis([0 Fs 0 25]);
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+x_pressureHF1         = x_pressureHF(1:1:142);
+x_pressureHF2         = x_pressureHF(142+11+1:1:142+11+142);
+x_pressureHF3         = x_pressureHF(2*142+2*11+1:1:2*142+2*11+142);
+x_pressureHF4         = x_pressureHF(3*142+3*11+1:1:3*142+3*11+142);
+x_pressureHF5         = x_pressureHF(4*142+3*11+72+1:1:4*142+3*11+72+142);
+x_pressureHF6         = x_pressureHF(5*142+4*11+72+1:1:5*142+4*11+72+142);
+x_pressureHF7         = x_pressureHF(6*142+5*11+72+1:1:6*142+5*11+72+142);
+x_pressureHF8         = x_pressureHF(7*142+6*11+72+1:1:7*142+6*11+72+142);
+
+t_pressureHF1         = (1:1:length(x_pressureHF1))*dt;
+t_pressureHF2         = (1:1:length(x_pressureHF2))*dt;
+t_pressureHF3         = (1:1:length(x_pressureHF3))*dt;
+t_pressureHF4         = (1:1:length(x_pressureHF4))*dt;
+t_pressureHF5         = (1:1:length(x_pressureHF5))*dt;
+t_pressureHF6         = (1:1:length(x_pressureHF6))*dt;
+t_pressureHF7         = (1:1:length(x_pressureHF7))*dt;
+t_pressureHF8         = (1:1:length(x_pressureHF8))*dt;
+
+% FFT calculation for Pressure
+Nfft1                = length(x_pressureHF1);
+deltaF1              = Fs/Nfft1;
+tVectors             = (1:Nfft1)*dt;
+fVectors             = (1:Nfft1)*deltaF1;
+% Pressure part to FFT calculation
+fftpressureHFTem1     = fft(x_pressureHF1(1:1:Nfft1),Nfft1);
+fftpressureHF1        = abs(fftpressureHFTem1);
+fftpressureHFTem2     = fft(x_pressureHF2(1:1:Nfft1),Nfft1);
+fftpressureHF2        = abs(fftpressureHFTem2);
+fftpressureHFTem3     = fft(x_pressureHF3(1:1:Nfft1),Nfft1);
+fftpressureHF3        = abs(fftpressureHFTem3);
+fftpressureHFTem4     = fft(x_pressureHF4(1:1:Nfft1),Nfft1);
+fftpressureHF4        = abs(fftpressureHFTem4);
+fftpressureHFTem5     = fft(x_pressureHF5(1:1:Nfft1),Nfft1);
+fftpressureHF5        = abs(fftpressureHFTem5);
+fftpressureHFTem6     = fft(x_pressureHF6(1:1:Nfft1),Nfft1);
+fftpressureHF6        = abs(fftpressureHFTem6);
+fftpressureHFTem7     = fft(x_pressureHF7(1:1:Nfft1),Nfft1);
+fftpressureHF7        = abs(fftpressureHFTem7);
+fftpressureHFTem8     = fft(x_pressureHF8(1:1:Nfft1),Nfft1);
+fftpressureHF8        = abs(fftpressureHFTem8);
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+figure(2);
+subplot(2,1,1);
+plot(tVectors,x_pressureHF1(1:Nfft1));
+title("Pressure-1: Time signal to FFT calculation.");
+subplot(2,1,2);
+stem(fVectors,fftpressureHF1);
+title('Pressure-1: Fourier transform. Abs.'); 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+figure(3);
+subplot(2,1,1);
+plot(tVectors,x_pressureHF2(1:Nfft1));
+title("Pressure-2: Time signal to FFT calculation.");
+subplot(2,1,2);
+stem(fVectors,fftpressureHF2);
+title('Pressure-2: Fourier transform. Abs.'); 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+figure(4);
+subplot(2,1,1);
+plot(tVectors,x_pressureHF3(1:Nfft1));
+title("Pressure-3: Time signal to FFT calculation.");
+subplot(2,1,2);
+stem(fVectors,fftpressureHF3);
+title('Pressure-3: Fourier transform. Abs.'); 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+figure(5);
+subplot(2,1,1);
+plot(tVectors,x_pressureHF4(1:Nfft1));
+title("Pressure-4: Time signal to FFT calculation.");
+subplot(2,1,2);
+stem(fVectors,fftpressureHF4);
+title('Pressure-4: Fourier transform. Abs.'); 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+figure(6);
+subplot(2,1,1);
+plot(tVectors,x_pressureHF5(1:Nfft1));
+title("Pressure-5: Time signal to FFT calculation.");
+subplot(2,1,2);
+stem(fVectors,fftpressureHF5);
+title('Pressure-5: Fourier transform. Abs.'); 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+figure(7);
+subplot(2,1,1);
+plot(tVectors,x_pressureHF6(1:Nfft1));
+title("Pressure-6: Time signal to FFT calculation.");
+subplot(2,1,2);
+stem(fVectors,fftpressureHF6);
+title('Pressure-6: Fourier transform. Abs.'); 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+figure(8);
+subplot(2,1,1);
+plot(tVectors,x_pressureHF7(1:Nfft1));
+title("Pressure-7: Time signal to FFT calculation.");
+subplot(2,1,2);
+stem(fVectors,fftpressureHF7);
+title('Pressure-7: Fourier transform. Abs.'); 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+figure(9);
+subplot(2,1,1);
+plot(tVectors,x_pressureHF8(1:Nfft1));
+title("Pressure-8: Time signal to FFT calculation.");
+subplot(2,1,2);
+stem(fVectors,fftpressureHF8);
+title('Pressure-8: Fourier transform. Abs.'); 
