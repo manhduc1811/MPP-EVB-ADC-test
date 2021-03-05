@@ -33,7 +33,7 @@ x_beaconLF_lp           = filter(b,a,x_beaconLF);
 t_beaconLF              = (1:1:length(x_beaconLF))*dt;
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Matched filter:
-y_Corr                  = conv(x_beaconLF_lp,x_full);
+y_Corr                  = conv(x_full,x_beaconLF_lp);
 size_Corr               = size(t_beaconLF)+size(t_full)-1;
 t_Corr                  = (0:1:size_Corr(2)-1)*dt;
 % plot full EVB time signal
@@ -53,7 +53,7 @@ plot(t_Corr,y_Corr,'k');
 axis([-0.5*10^(-3) 4*10^(-3) -3 3]);
 title('Detector signal.');
 % plot full EVB time signal
-figure(4);
+figure(2);
 subplot(3,1,1);
 plot(t_full,x_full);
 %axis([-0.016 0.016 -0.15 0.15]);
